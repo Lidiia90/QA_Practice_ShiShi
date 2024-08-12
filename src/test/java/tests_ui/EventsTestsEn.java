@@ -2,6 +2,7 @@ package tests_ui;
 
 import config.ApplicationManager;
 import helpers.enums.HeaderMenuItemsEn;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.BasePage;
 import pages.EventsPageEn;
@@ -11,10 +12,16 @@ import static pages.BasePage.clickButtonsOnHeaderEn;
 
 public class EventsTestsEn extends ApplicationManager {
 
+    EventsPageEn eventsPageEn;
+
+    @BeforeMethod
+    public void goToEventsPageEn() {
+        HomePageEn homePageEn = new HomePageEn(getDriver());
+        eventsPageEn = clickButtonsOnHeaderEn(HeaderMenuItemsEn.ACTIVITIES);
+    }
 
     @Test
-    public void startTest(){
-        HomePageEn homePageEn = new HomePageEn(getDriver());
-        EventsPageEn eventsPageEn = clickButtonsOnHeaderEn(HeaderMenuItemsEn.ACTIVITIES);
+    public void startTest() {
+        System.out.println("==============");
     }
 }

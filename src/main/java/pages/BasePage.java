@@ -41,6 +41,16 @@ public class BasePage {
                 return (T) new EventsPageEn(driver);
             case ABOUT:
                 return (T) new AboutPageEn(driver);
+            case OUR_TEAM:
+                return (T) new TeamPageEn(driver);
+            case OUR_PARTNERS:
+                return (T) new PartnersPageEn(driver);
+            case PHOTO:
+                return (T) new PhotoPageEn(driver);
+            case VIDEO:
+                return (T) new VideoPageEn(driver);
+            case CONTACT_US:
+                return (T) new ContactsPageEn(driver);
             default:
                 throw new IllegalArgumentException("invalid parametr headerMenuItemsEn");
         }
