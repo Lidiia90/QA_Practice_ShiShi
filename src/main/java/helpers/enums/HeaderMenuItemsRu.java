@@ -1,11 +1,11 @@
 package helpers.enums;
 
 public enum HeaderMenuItemsRu {
-    EVENTS("//ul[@class='vertical medium-horizontal menu align-right show-for-medium show-for-large']/li[1]/a[@title='About Us']"),
-    PHOTO("//ul[@class='vertical medium-horizontal menu align-right show-for-medium show-for-large']/li[2]/a[@title='Activities']"),
-    VIDEO("//ul[@class='vertical medium-horizontal menu align-right show-for-medium show-for-large']/li[3]/a[@title='Our Team']"),
-    ABOUT_US("//ul[@class='vertical medium-horizontal menu align-right show-for-medium show-for-large']/li[4]/a[@title='Our Partners']"),
-    CONTACTS("//ul[@class='vertical medium-horizontal menu align-right show-for-medium show-for-large']/li[5]/a[@title='Photo']"),
+    EVENTS("//ul[@class='menu align-right  hide-for-small-only']//a[@title='События']"),
+    PHOTO("//ul[@class='menu align-right  hide-for-small-only']//a[@title='Фото']"),
+    VIDEO("//ul[@class='menu align-right  hide-for-small-only']//a[@title='Видео']"),
+    ABOUT_US("//ul[@class='menu align-right  hide-for-small-only']//a[@title='О нас']"),
+    CONTACTS("//ul[@class='menu align-right  hide-for-small-only']//a[@title='Контакты']")
     ;
     private final String locator;
 

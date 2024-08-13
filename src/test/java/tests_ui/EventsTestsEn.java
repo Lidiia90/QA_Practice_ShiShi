@@ -11,12 +11,11 @@ import pages.HomePageEn;
 import static pages.BasePage.clickButtonsOnHeaderEn;
 
 public class EventsTestsEn extends ApplicationManager {
-
     EventsPageEn eventsPageEn;
 
     @BeforeMethod
     public void goToEventsPageEn() {
-        HomePageEn homePageEn = new HomePageEn(getDriver());
+        new HomePageEn(getDriver());
         eventsPageEn = clickButtonsOnHeaderEn(HeaderMenuItemsEn.ACTIVITIES);
     }
 

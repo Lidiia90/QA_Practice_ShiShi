@@ -4,18 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92a8c2c1-dc0f-472a-8494-2febd3339468" name="Changes" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/helpers/enums/HeaderMenuItemsRu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/ContactsPageEn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/PartnersPageEn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/PhotoPageEn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/TeamPageEn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/VideoPageEn.java" afterDir="false" />
+    <list default="true" id="92a8c2c1-dc0f-472a-8494-2febd3339468" name="Changes" comment="added enum en">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pages/AboutUsPageRu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pages/ContactsPageRu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pages/EventsPageRu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pages/LoginUserPageRu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pages/PhotoPageRu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pages/VideoPageRu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests_ui/RegistrationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helpers/enums/HeaderMenuItemsEn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helpers/enums/HeaderMenuItemsEn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/config/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/ApplicationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helpers/enums/HeaderMenuItemsRu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helpers/enums/HeaderMenuItemsRu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/HomePageEn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/HomePageEn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/CreateUserPageRu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/CreateUserPageRu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/LoginPageRu.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests_ui/EventsTestsEn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests_ui/EventsTestsEn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests_ui/LoginTestsRu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests_ui/LoginTestsRu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,16 +50,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/QA_Auto_Projects/ShiShi/QA_Practice_ShiShi&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/QA_Auto_Projects/ShiShi/QA_Practice_ShiShi",
+    "settings.editor.selected.configurable": "MavenSettings"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -65,7 +70,7 @@
       <recent name="helpers" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.EventsTestsEn.startTest">
+  <component name="RunManager" selected="TestNG.LoginTestsRu.startPositiveTest">
     <configuration name="EventsTestsEn.startTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_Practice_ShiShiNew" />
       <extension name="coverage">
@@ -98,8 +103,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.EventsTestsEn.startTest" />
         <item itemvalue="TestNG.LoginTestsRu.startPositiveTest" />
+        <item itemvalue="TestNG.EventsTestsEn.startTest" />
       </list>
     </recent_temporary>
   </component>
@@ -128,11 +133,20 @@
       <option name="project" value="LOCAL" />
       <updated>1723190788669</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added enum en">
+      <option name="closed" value="true" />
+      <created>1723481744417</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1723481744417</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="added enum en" />
+    <option name="LAST_COMMIT_MESSAGE" value="added enum en" />
   </component>
 </project>

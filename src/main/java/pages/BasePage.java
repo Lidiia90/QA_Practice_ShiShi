@@ -1,6 +1,7 @@
 package pages;
 
 import helpers.enums.HeaderMenuItemsEn;
+import helpers.enums.HeaderMenuItemsRu;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -23,10 +24,20 @@ public class BasePage {
     @FindBy(xpath = "//i[@class='fa fa-facebook']/..")
     WebElement btnFacebookHeader;
 
-    @FindBy(xpath = "//a[@title='About Us']")
-    WebElement btnAboutHeader;
-    @FindBy(xpath = "//a[@title='Activities']")
-    WebElement btnActivitiesHeader;
+    @FindBy(xpath = "//a[text()='Вход']")
+    static WebElement btnLoginHeader;
+    @FindBy(xpath = "//a[text()='Регистрация']")
+    static WebElement btnRegistrationHeader;
+
+    public static LoginUserPageRu clickBtnLoginHeader() {
+        btnLoginHeader.click();
+        return new LoginUserPageRu(driver);
+    }
+
+    public static CreateUserPageRu clickBtnRegistrationHeader() {
+        btnRegistrationHeader.click();
+        return new CreateUserPageRu(driver);
+    }
 
     public static <T extends BasePage> T clickButtonsOnHeaderEn(HeaderMenuItemsEn headerMenuItemsEn) {
         try {
@@ -56,5 +67,36 @@ public class BasePage {
         }
     }
 
+    public static <T extends BasePage> T clickButtonsOnHeaderRu(HeaderMenuItemsRu headerMenuItemsRu) {
+        try {
+            WebElement elementHeaderMenuItem = new WebDriverWait(driver, Duration.ofSeconds(10))
+                    .until(ExpectedConditions.elementToBeClickable(By.xpath(headerMenuItemsRu.getLocator())));
+            elementHeaderMenuItem.click();
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        }
+        switch (headerMenuItemsRu) {
+            case EVENTS:
+                return (T) new EventsPageRu(driver);
+            case PHOTO:
+                return (T) new PhotoPageRu(driver);
+            case VIDEO:
+                return (T) new VideoPageRu(driver);
+            case ABOUT_US:
+                return (T) new AboutUsPageRu(driver);
+            case CONTACTS:
+                return (T) new ContactsPageRu(driver);
+            default:
+                throw new IllegalArgumentException("invalid parametr headerMenuItemsRu");
+        }
+    }
+
+    public static void pause(int time) {
+        try {
+            Thread.sleep(time * 1000L);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }
