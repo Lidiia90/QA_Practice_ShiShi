@@ -4,23 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92a8c2c1-dc0f-472a-8494-2febd3339468" name="Changes" comment="added enum en">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/UserDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/AboutUsPageRu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/ContactsPageRu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/EventsPageRu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/LoginUserPageRu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/PhotoPageRu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/VideoPageRu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests_ui/RegistrationTests.java" afterDir="false" />
+    <list default="true" id="92a8c2c1-dc0f-472a-8494-2febd3339468" name="Changes" comment="added ru classes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/config/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/ApplicationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helpers/enums/HeaderMenuItemsRu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helpers/enums/HeaderMenuItemsRu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/CreateUserPageRu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/CreateUserPageRu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/LoginPageRu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests_ui/EventsTestsEn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests_ui/EventsTestsEn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests_ui/LoginTestsRu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests_ui/LoginTestsRu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,12 +127,21 @@
       <option name="project" value="LOCAL" />
       <updated>1723481744417</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added ru classes">
+      <option name="closed" value="true" />
+      <created>1723566956017</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1723566956017</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="added enum en" />
-    <option name="LAST_COMMIT_MESSAGE" value="added enum en" />
+    <MESSAGE value="added ru classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="added ru classes" />
   </component>
 </project>

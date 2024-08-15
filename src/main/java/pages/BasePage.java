@@ -90,7 +90,6 @@ public class BasePage {
                 throw new IllegalArgumentException("invalid parametr headerMenuItemsRu");
         }
     }
-
     public static void pause(int time) {
         try {
             Thread.sleep(time * 1000L);
@@ -99,4 +98,12 @@ public class BasePage {
         }
     }
 
+    public void clickWait(WebElement element, int time){
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(time))
+                    .until(ExpectedConditions.elementToBeClickable(element)).click();
+        }catch (TimeoutException e){
+            e.printStackTrace();
+        }
+    }
 }
