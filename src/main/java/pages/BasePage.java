@@ -106,4 +106,14 @@ public class BasePage {
             e.printStackTrace();
         }
     }
+
+    public static boolean textTobePresentElement(WebElement element, String text, int time) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
+            return wait.until(ExpectedConditions.textToBePresentInElement(element, text));
+
+        }catch (TimeoutException e){
+            return false;
+        }
+    }
 }
