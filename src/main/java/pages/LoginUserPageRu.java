@@ -1,9 +1,9 @@
 package pages;
 
 import dto.UserDto;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import helpers.PropertiesReader;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class LoginUserPageRu extends BasePage {
+
     public LoginUserPageRu(WebDriver driver) {
         setDriver(driver);
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
@@ -24,12 +25,24 @@ public class LoginUserPageRu extends BasePage {
     WebElement fieldPassword;
 
     @FindBy(xpath = "//input[@name='submit']")
-    public WebElement loginButton;
+    WebElement loginButton;
 
     @FindBy(xpath = "//span[contains(text(),'Мои текущие заказы')]")
     WebElement ordersTextLocator;
     @FindBy(xpath = "//p[contains(text(),'Логин/пароль не верен')]")
-    public WebElement errorMessage;
+    WebElement errorMessage;
+
+    @FindBy(id = "remember")
+    WebElement rememberCheckbox;
+    @FindBy(css = "#remember")
+    WebElement rememberCheckboxByCss;
+
+    @FindBy(xpath = "//a[contains(text(),'Забыли свой пароль?')]")
+    WebElement forgotPasswordLink;
+    @FindBy(xpath = "//input[@id='identity']")
+    WebElement typeForgotPassword;
+    @FindBy(xpath = " //input[@name='submit']")
+    WebElement sendButton;
 
     public LoginUserPageRu typeLoginForm(UserDto userDto) {
         fieldEmail.sendKeys(userDto.getEmail());
@@ -50,5 +63,35 @@ public class LoginUserPageRu extends BasePage {
             return false;
         }
     }
+    public void checkPolicyXY() {
+        if (!rememberCheckbox.isSelected()) {
+            Rectangle rect = rememberCheckboxByCss.getRect();
+            int w = rect.getWidth();
+            int xOffSet = -w / 2;
+            Actions actions = new Actions(driver);
+            actions.moveToElement(rememberCheckboxByCss, xOffSet, 0).click().release().perform();
+        }
     }
+
+    public void clickForgotPasswordLink() {
+        clickWait(forgotPasswordLink, 10);
+    }
+
+    public void typeForgotPasswordForm() {
+        String email = PropertiesReader.getProperty("data.properties", "email");
+        typeForgotPassword.sendKeys(email);
+    }
+    public void typeForgotPasswordFormUnregisteredEmail() {
+        String email = PropertiesReader.getProperty("data.properties", "unregisteredEmail");
+        typeForgotPassword.sendKeys(email);
+    }
+    public void typeForgotPasswordFormWithoutEmail() {
+        String email = PropertiesReader.getProperty("data.properties", "withoutEmail");
+        typeForgotPassword.sendKeys(email);
+    }
+
+    public void clickButtonSend() {
+        clickWait(sendButton, 10);
+    }
+}
 

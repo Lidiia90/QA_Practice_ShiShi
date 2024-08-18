@@ -29,10 +29,25 @@ public class LoginTestsRu extends ApplicationManager {
         LoginUserPageRu loginUserPageRu = homePageRu.navigateToLoginPage();
         UserDto userDto = UserDto.builder()
                 .email(getProperty("data.properties", "email"))
-                .password(getProperty("data.properties","password"))
+                .password(getProperty("data.properties", "password"))
                 .build();
         pause(3);
         loginUserPageRu.typeLoginForm(userDto);
+        loginUserPageRu.clickButtonSubmit();
+        Assert.assertTrue(loginUserPageRu.isOrdersTextDisplayed(), "Мои текущие заказы");
+    }
+
+    @Test
+    public void loginWithCheckBoxPositiveTest() {
+        HomePageRu homePageRu = new HomePageRu(getDriver());
+        LoginUserPageRu loginUserPageRu = homePageRu.navigateToLoginPage();
+        UserDto userDto = UserDto.builder()
+                .email(getProperty("data.properties", "email"))
+                .password(getProperty("data.properties", "password"))
+                .build();
+        pause(3);
+        loginUserPageRu.typeLoginForm(userDto);
+        loginUserPageRu.checkPolicyXY();
         loginUserPageRu.clickButtonSubmit();
         Assert.assertTrue(loginUserPageRu.isOrdersTextDisplayed(), "Мои текущие заказы");
     }
@@ -43,10 +58,11 @@ public class LoginTestsRu extends ApplicationManager {
         LoginUserPageRu loginUserPageRu = homePageRu.navigateToLoginPage();
         UserDto userDto = UserDto.builder()
                 .email(getProperty("data.properties", "wrongEmail"))
-                .password(getProperty("data.properties","password"))
+                .password(getProperty("data.properties", "password"))
                 .build();
         BasePage.pause(3);
         loginUserPageRu.typeLoginForm(userDto);
+        loginUserPageRu.checkPolicyXY();
         loginUserPageRu.clickButtonSubmit();
         Assert.assertTrue(
                 BasePage.textTobePresentElement(
@@ -63,10 +79,11 @@ public class LoginTestsRu extends ApplicationManager {
 
         UserDto userDto = UserDto.builder()
                 .email(getProperty("data.properties", "email"))
-                .password(getProperty("data.properties","wrongPassword"))
+                .password(getProperty("data.properties", "wrongPassword"))
                 .build();
         BasePage.pause(3);
         loginUserPageRu.typeLoginForm(userDto);
+        loginUserPageRu.checkPolicyXY();
         loginUserPageRu.clickButtonSubmit();
         Assert.assertTrue(
                 BasePage.textTobePresentElement(
@@ -75,4 +92,93 @@ public class LoginTestsRu extends ApplicationManager {
                         10),
                 "Error: Expected error message not found.");
     }
+
+    @Test
+    public void WithoutEmailLoginTest() {
+        HomePageRu homePageRu = new HomePageRu(getDriver());
+        LoginUserPageRu loginUserPageRu = homePageRu.navigateToLoginPage();
+
+        UserDto userDto = UserDto.builder()
+                .email(getProperty("data.properties", "withoutEmail"))
+                .password(getProperty("data.properties", "password"))
+                .build();
+        BasePage.pause(3);
+        loginUserPageRu.typeLoginForm(userDto);
+        loginUserPageRu.clickButtonSubmit();
+        Assert.assertTrue(
+                BasePage.textTobePresentElement(
+                        getDriver().findElement(By.xpath("//p[contains(text(),'Поле \"Email\" обязательно для заполнения.')]")),
+                        "Поле \"Email\" обязательно для заполнения.",
+                        10),
+                "Error: Expected error message not found.");
+    }
+
+    @Test
+    public void WithoutPasswordLoginTest() {
+        HomePageRu homePageRu = new HomePageRu(getDriver());
+        LoginUserPageRu loginUserPageRu = homePageRu.navigateToLoginPage();
+
+        UserDto userDto = UserDto.builder()
+                .email(getProperty("data.properties", "email"))
+                .password(getProperty("data.properties", "withoutPassword"))
+                .build();
+        BasePage.pause(3);
+        loginUserPageRu.typeLoginForm(userDto);
+        loginUserPageRu.clickButtonSubmit();
+        Assert.assertTrue(
+                BasePage.textTobePresentElement(
+                        getDriver().findElement(By.xpath("//p[contains(text(),'Поле \"Пароль\" обязательно для заполнения.')]")),
+                        "Поле \"Пароль\" обязательно для заполнения.",
+                        10),
+                "Error: Expected error message not found.");
+    }
+
+    @Test
+    public void ForgotPasswordTest() {
+        HomePageRu homePageRu = new HomePageRu(getDriver());
+        LoginUserPageRu loginUserPageRu = homePageRu.navigateToLoginPage();
+        BasePage.pause(3);
+        loginUserPageRu.clickForgotPasswordLink();
+        loginUserPageRu.typeForgotPasswordForm();
+        loginUserPageRu.clickButtonSend();
+        Assert.assertTrue(
+                BasePage.textTobePresentElement(
+                        getDriver().findElement(By.xpath("//p[contains(text(),'Пароль сброшен. На электронную почту отправлено сообщение')]")),
+                        "Пароль сброшен. На электронную почту отправлено сообщение",
+                        10),
+                "Error: Expected error message not found.");
+    }
+
+    @Test
+    public void ForgotPasswordUnregisteredEmailNegativeTest() {
+        HomePageRu homePageRu = new HomePageRu(getDriver());
+        LoginUserPageRu loginUserPageRu = homePageRu.navigateToLoginPage();
+        BasePage.pause(3);
+        loginUserPageRu.clickForgotPasswordLink();
+        loginUserPageRu.typeForgotPasswordFormUnregisteredEmail();
+        loginUserPageRu.clickButtonSend();
+        Assert.assertTrue(
+                BasePage.textTobePresentElement(
+                        getDriver().findElement(By.xpath("//p[normalize-space()='No record of that email address.']")),
+                        "No record of that email address.",
+                        10),
+                "Error: Expected error message not found.");
+    }
+
+    @Test
+    public void ForgotPasswordWithoutEmailNegativeTest() {
+        HomePageRu homePageRu = new HomePageRu(getDriver());
+        LoginUserPageRu loginUserPageRu = homePageRu.navigateToLoginPage();
+        BasePage.pause(3);
+        loginUserPageRu.clickForgotPasswordLink();
+        loginUserPageRu.typeForgotPasswordFormUnregisteredEmail();
+        loginUserPageRu.clickButtonSend();
+        Assert.assertTrue(
+                BasePage.textTobePresentElement(
+                        getDriver().findElement(By.xpath("//p[contains(text(),'Пожалуйста введите ваш email и мы сможем отправить вам email с новым паролем.')]")),
+                        "Пожалуйста введите ваш email и мы сможем отправить вам email с новым паролем.",
+                        10),
+                "Error: Expected error message not found.");
+    }
 }
+
