@@ -3,9 +3,12 @@ package tests_ui;
 import config.ApplicationManager;
 import dto.UserDto;
 import helpers.PropertiesReader;
+import io.qameta.allure.*;
+import jdk.jfr.Description;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.BasePage;
 import pages.HomePageRu;
@@ -23,6 +26,7 @@ public class LoginTestsRu extends ApplicationManager {
         loginUserPageRu = clickBtnLoginHeader();
     }
 
+    @Description("Test login with valid email and password")
     @Test
     public void loginPositiveTest() {
         HomePageRu homePageRu = new HomePageRu(getDriver());
@@ -72,6 +76,7 @@ public class LoginTestsRu extends ApplicationManager {
                 "Error: Expected error message not found.");
     }
 
+
     @Test
     public void WrongPasswordLoginTest() {
         HomePageRu homePageRu = new HomePageRu(getDriver());
@@ -92,6 +97,7 @@ public class LoginTestsRu extends ApplicationManager {
                         10),
                 "Error: Expected error message not found.");
     }
+
 
     @Test
     public void WithoutEmailLoginTest() {
@@ -149,6 +155,7 @@ public class LoginTestsRu extends ApplicationManager {
                 "Error: Expected error message not found.");
     }
 
+
     @Test
     public void ForgotPasswordUnregisteredEmailNegativeTest() {
         HomePageRu homePageRu = new HomePageRu(getDriver());
@@ -164,6 +171,7 @@ public class LoginTestsRu extends ApplicationManager {
                         10),
                 "Error: Expected error message not found.");
     }
+
 
     @Test
     public void ForgotPasswordWithoutEmailNegativeTest() {

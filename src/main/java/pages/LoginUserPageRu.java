@@ -2,6 +2,7 @@ package pages;
 
 import dto.UserDto;
 import helpers.PropertiesReader;
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -44,12 +45,14 @@ public class LoginUserPageRu extends BasePage {
     @FindBy(xpath = " //input[@name='submit']")
     WebElement sendButton;
 
+    @Step("Step 2 annotation")
     public LoginUserPageRu typeLoginForm(UserDto userDto) {
         fieldEmail.sendKeys(userDto.getEmail());
         fieldPassword.sendKeys(userDto.getPassword());
         return this;
     }
 
+    @Step("Step 3 annotation")
     public void clickButtonSubmit() {
         clickWait(loginButton, 10);
     }
@@ -72,7 +75,6 @@ public class LoginUserPageRu extends BasePage {
             actions.moveToElement(rememberCheckboxByCss, xOffSet, 0).click().release().perform();
         }
     }
-
     public void clickForgotPasswordLink() {
         clickWait(forgotPasswordLink, 10);
     }
