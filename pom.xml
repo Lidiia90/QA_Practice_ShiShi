@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>QA_Practice_ShiShiNew</artifactId> <!-- Убедитесь, что это правильный идентификатор -->
+    <artifactId>QA_Practice_ShiShiNew</artifactId> 
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -38,7 +38,7 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- Оригинальные зависимости -->
+        
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
@@ -67,7 +67,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Дополнительные зависимости из второго файла -->
         <dependency>
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
