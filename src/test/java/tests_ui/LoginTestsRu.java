@@ -29,6 +29,7 @@ public class LoginTestsRu extends ApplicationManager {
     @Description("Test login with valid email and password")
     @Test
     public void loginPositiveTest() {
+         //Allure.description("Test login with valid email and password");
         HomePageRu homePageRu = new HomePageRu(getDriver());
         LoginUserPageRu loginUserPageRu = homePageRu.navigateToLoginPage();
         UserDto userDto = UserDto.builder()
